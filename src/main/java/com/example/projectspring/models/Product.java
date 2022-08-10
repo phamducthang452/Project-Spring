@@ -1,6 +1,14 @@
 package com.example.projectspring.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String productName;
     private int year;
@@ -21,8 +29,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long id, String productName, int year, Double price, String url) {
-        this.id = id;
+    public Product(String productName, int year, Double price, String url) {
         this.productName = productName;
         this.year = year;
         this.price = price;
